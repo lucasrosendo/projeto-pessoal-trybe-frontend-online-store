@@ -20,7 +20,7 @@ class SearchBar extends Component {
               data-testid="query-button"
               onClick={ handleClick }
             >
-              teste
+              Pesquisar
             </button>
           </form>
           <div>
