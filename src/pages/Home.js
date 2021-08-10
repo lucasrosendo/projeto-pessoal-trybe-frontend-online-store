@@ -14,6 +14,7 @@ class Home extends Component {
       categories: [],
       productText: '',
       products: [],
+      categoryText: '',
     };
   }
 
@@ -25,9 +26,8 @@ class Home extends Component {
     });
   }
 
-  handleChange = (e) => {
-    e.preventDefault();
-    const { name, value } = e.target;
+  handleChange = ({ target }) => {
+    const { name, value } = target;
     this.setState({
       [name]: value,
     });
@@ -35,16 +35,19 @@ class Home extends Component {
 
   handleClick = (e) => {
     e.preventDefault();
+    const { target: { value } } = e;
     const { productText } = this.state;
-    categoryAPI.getProductsFromCategoryAndQuery('', productText).then((data) => {
-      this.setState({
-        products: data.results,
+    categoryAPI
+      .getProductsFromCategoryAndQuery(value, productText).then((data) => {
+        this.setState({
+          products: data.results,
+        });
       });
-    });
   }
 
   render() {
-    const { categories, productText, products } = this.state;
+    const { categories, productText, products, categoryText } = this.state;
+    console.log(categoryText);
     return (
       <div>
         <SearchBar
@@ -55,7 +58,12 @@ class Home extends Component {
         <Link to="/shoppingcart" data-testid="shopping-cart-button">
           Carrinho de Compras
         </Link>
-        <Category categories={ categories } />
+        <Category
+          categoryTextChange={ this.handleChange }
+          categoryText={ categoryText }
+          categories={ categories }
+          handleClick={ this.handleClick }
+        />
         <ProductList products={ products } />
       </div>
     );
