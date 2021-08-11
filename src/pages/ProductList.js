@@ -6,7 +6,7 @@ class ProductList extends Component {
   render() {
     const { products, addToCart } = this.props;
     return (
-      <div>
+      <div data-testid="product">
         {products.map((product) => (
           <ProductCard
             key={ product.id }
