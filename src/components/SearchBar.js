@@ -27,7 +27,9 @@ class SearchBar extends Component {
             </button>
           </form>
           <div>
-            <span data-testid="home-initial-message" />
+            <span data-testid="home-initial-message">
+              Digite algum termo de pesquisa ou escolha uma categoria.
+            </span>
           </div>
         </main>
       </div>
