@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class ProductList extends Component {
+class ProductCard extends Component {
   render() {
     const { product: { title, price, thumbnail } } = this.props;
     const { product, addToCart } = this.props;
@@ -26,7 +26,7 @@ class ProductList extends Component {
   }
 }
 
-ProductList.propTypes = {
+ProductCard.propTypes = {
   addToCart: PropTypes.func.isRequired,
   product: PropTypes.shape({
     title: PropTypes.string,
@@ -35,4 +35,4 @@ ProductList.propTypes = {
   }).isRequired,
 };
 
-export default ProductList;
+export default ProductCard;
