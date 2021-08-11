@@ -35,7 +35,7 @@ class ProductDetails extends Component {
           Home
         </Link>
         <br />
-        <Link to="/shoppingcart" data-testid="shopping-cart-button">
+        <Link to="/shoppingcart" data-testid="shopping-cart-button" className="cart">
           Carrinho de Compras
         </Link>
         {product.map((infoProduct) => (
