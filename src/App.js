@@ -5,8 +5,8 @@ import ProductDetails from './pages/ProductDetails';
 import ShoppingCart from './pages/ShoppingCart';
 
 export default class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       cart: [],
@@ -21,16 +21,30 @@ export default class App extends Component {
     }));
   };
 
+  cartItemRemove = (id) => {
+    const { cart } = this.state;
+    const removeCart = cart.filter((remove) => remove.id !== id);
+    this.setState({
+      cart: removeCart,
+    });
+  }
+
   render() {
     const { cart, empty } = this.state;
     return (
       <BrowserRouter>
         <Switch>
           <Route exact path="/" render={ () => <Home addToCart={ this.addToCart } /> } />
+          <Route exact path="/shoppingcart/:id" component={ ShoppingCart } />
           <Route
             exact
             path="/shoppingcart"
-            render={ () => <ShoppingCart cart={ cart } empty={ empty } /> }
+            render={ () => (
+              <ShoppingCart
+                cart={ cart }
+                empty={ empty }
+                cartItemRemove={ this.cartItemRemove }
+              />) }
           />
           <Route
             exact
@@ -41,6 +55,7 @@ export default class App extends Component {
                 addToCart={ this.addToCart }
               />) }
           />
+          <Route />
         </Switch>
       </BrowserRouter>
     );
