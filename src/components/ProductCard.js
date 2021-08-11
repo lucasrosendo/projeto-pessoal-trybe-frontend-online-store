@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-class ProductList extends Component {
+class ProductCard extends Component {
   render() {
     const { product: { title, price, thumbnail } } = this.props;
     const { product, addToCart } = this.props;
+    
     return (
       <div data-testid="product">
         <div>
@@ -20,19 +22,26 @@ class ProductList extends Component {
           >
             Adicionar ao carrinho
           </button>
+          <Link
+            data-testid="product-detail-link"
+            to={ `/product/${id}/${encodeURIComponent(title)}` }
+          >
+            Ver Detalhe
+          </Link>
         </div>
       </div>
     );
   }
 }
 
-ProductList.propTypes = {
+ProductCard.propTypes = {
   addToCart: PropTypes.func.isRequired,
   product: PropTypes.shape({
+    id: PropTypes.number,
     title: PropTypes.string,
     price: PropTypes.number,
     thumbnail: PropTypes.string,
   }).isRequired,
 };
 
-export default ProductList;
+export default ProductCard;
