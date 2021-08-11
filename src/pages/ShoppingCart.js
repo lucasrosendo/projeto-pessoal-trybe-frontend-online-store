@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class ShoppingCart extends Component {
-  cartProduct = ({ id, title, thumbnail }) => (
+  cartProduct = ({ id, title, thumbnail, price }) => (
     <div key={ id }>
       <div>
         <img src={ thumbnail } alt="imagem" />
         <div>
           <h4 data-testid="shopping-cart-product-name">{title}</h4>
           <h5 data-testid="shopping-cart-product-quantity">1</h5>
+          <h5>{price}</h5>
         </div>
       </div>
     </div>

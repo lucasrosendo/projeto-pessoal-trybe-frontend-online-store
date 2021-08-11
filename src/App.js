@@ -32,7 +32,15 @@ export default class App extends Component {
             path="/shoppingcart"
             render={ () => <ShoppingCart cart={ cart } empty={ empty } /> }
           />
-          <Route exact path="/product/:id/:title" component={ ProductDetails } />
+          <Route
+            exact
+            path="/product/:id/:title"
+            render={ ({ match }) => (
+              <ProductDetails
+                match={ match }
+                addToCart={ this.addToCart }
+              />) }
+          />
         </Switch>
       </BrowserRouter>
     );

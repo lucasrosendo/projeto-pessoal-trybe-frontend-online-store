@@ -6,7 +6,7 @@ class ProductCard extends Component {
   render() {
     const { product: { id, title, price, thumbnail } } = this.props;
     const { product, addToCart } = this.props;
-    
+
     return (
       <div data-testid="product">
         <div className="card">
