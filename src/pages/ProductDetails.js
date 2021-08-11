@@ -28,7 +28,9 @@ class ProductDetails extends Component {
   render() {
     const { productDetails } = this.state;
     const { match: { params: { id } } } = this.props;
+    const { addToCart } = this.props;
     const product = productDetails.filter((productDetail) => productDetail.id === id);
+    console.log(product);
     return (
       <div className="card-details-body">
         <Link to="/" className="home-btn">
@@ -59,6 +61,13 @@ class ProductDetails extends Component {
                 <li>1</li>
                 <li>2</li>
               </ul>
+              <button
+                type="button"
+                data-testid="product-detail-add-to-cart"
+                onClick={ () => addToCart(product[0]) }
+              >
+                Adicionar ao Carrinho
+              </button>
             </div>
           </div>
         ))}
@@ -68,9 +77,10 @@ class ProductDetails extends Component {
 }
 
 ProductDetails.propTypes = {
+  addToCart: PropTypes.func.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string,
       title: PropTypes.string,
       thumbnail: PropTypes.string,
     }),
