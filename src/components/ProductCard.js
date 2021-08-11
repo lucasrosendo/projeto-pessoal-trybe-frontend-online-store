@@ -6,7 +6,7 @@ class ProductCard extends Component {
   render() {
     const { product: { id, title, price, thumbnail } } = this.props;
     const { product, addToCart } = this.props;
-    
+
     return (
       <div data-testid="product">
         <div className="card">
@@ -18,12 +18,13 @@ class ProductCard extends Component {
               {price}
             </h5>
           </div>
-          <button className='card-btn'
+          <button
+            className="card-btn"
             type="button"
             data-testid="product-add-to-cart"
             onClick={ () => addToCart(product) }
           >
-             <i class="fas fa-cart-plus"></i>
+            <i className="fas fa-cart-plus" />
           </button>
           <Link
             className="card-btn"
