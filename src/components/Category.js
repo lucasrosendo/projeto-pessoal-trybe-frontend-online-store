@@ -5,16 +5,18 @@ class Category extends Component {
   render() {
     const { categories, handleClick } = this.props;
     return (
-      <div>
+      <div className="nav-bar">
         <form action="">
-          <ul style={ { listStyle: 'none' } }>
+          <ul style={ { listStyle: 'none' } } className="catalog">
             Categorias:
             {categories
               .map((category) => (
                 <li
+                  className="catalog-btn"
                   key={ category.id }
                 >
                   <label
+                    className="catalog"
                     style={ { cursor: 'pointer' } }
                     data-testid="category"
                     htmlFor={ category.id }
