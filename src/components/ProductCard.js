@@ -7,17 +7,21 @@ class ProductList extends Component {
     const { product: { id, title, price, thumbnail } } = this.props;
     return (
       <div data-testid="product">
-        <div>
-          <img src={ thumbnail } alt="imagem" />
+        <div className="card">
+          <img src={ thumbnail } alt="imagem" className="card-img" />
           <div>
-            <h4>{title}</h4>
-            <h5>{price}</h5>
+            <h4 className="title-card">{title}</h4>
+            <h5 className="price">
+              R$
+              {price}
+            </h5>
           </div>
           <Link
+            className="card-btn"
             data-testid="product-detail-link"
             to={ `/product/${id}/${encodeURIComponent(title)}` }
           >
-            Ver Detalhe
+            Ver Detalhes
           </Link>
         </div>
       </div>

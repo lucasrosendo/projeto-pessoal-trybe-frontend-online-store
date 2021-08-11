@@ -55,7 +55,7 @@ class Home extends Component {
           productTextChange={ this.handleChange }
           handleClick={ this.handleClick }
         />
-        <Link to="/shoppingcart" data-testid="shopping-cart-button">
+        <Link to="/shoppingcart" data-testid="shopping-cart-button" className="cart">
           Carrinho de Compras
         </Link>
         <Category

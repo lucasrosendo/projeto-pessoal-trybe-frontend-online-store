@@ -5,20 +5,23 @@ class SearchBar extends Component {
   render() {
     const { productText, productTextChange, handleClick } = this.props;
     return (
-      <div>
-        <main>
+      <div className="searchbar">
+        <main className="main-search">
           <form action="">
             <input
+              className="search-input"
               data-testid="query-input"
               type="text"
               name="productText"
               value={ productText }
               onChange={ productTextChange }
+              placeholder="Digite algum termo de pesquisa ou escolha uma categoria."
             />
             <button
               type="submit"
               data-testid="query-button"
               onClick={ handleClick }
+              className="search-btn"
             >
               Pesquisar
             </button>
