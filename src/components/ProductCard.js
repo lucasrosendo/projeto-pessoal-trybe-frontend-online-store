@@ -18,12 +18,12 @@ class ProductCard extends Component {
               {price}
             </h5>
           </div>
-          <button
+          <button className='card-btn'
             type="button"
             data-testid="product-add-to-cart"
             onClick={ () => addToCart(product) }
           >
-            Adicionar ao carrinho
+             <i class="fas fa-cart-plus"></i>
           </button>
           <Link
             className="card-btn"

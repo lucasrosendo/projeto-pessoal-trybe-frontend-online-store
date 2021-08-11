@@ -30,22 +30,26 @@ class ProductDetails extends Component {
     const { match: { params: { id } } } = this.props;
     const product = productDetails.filter((productDetail) => productDetail.id === id);
     return (
-      <div>
-        <Link to="/">
-          Home
+      <div className='card-details-body'>
+        <Link to="/" className='home-btn'>
+          Home <i class="fas fa-home"></i>
         </Link>
         <br />
         <Link to="/shoppingcart" data-testid="shopping-cart-button" className="cart">
           Carrinho de Compras
         </Link>
         {product.map((infoProduct) => (
-          <div key={ infoProduct.id }>
+          <div key={ infoProduct.id } className='card-details'>
             <div>
               <h3 data-testid="product-detail-name">
                 { infoProduct.title }
                 { ` - R$ ${infoProduct.price}` }
               </h3>
-              <img src={ infoProduct.thumbnail } alt={ infoProduct.title } />
+              <img 
+              src={ infoProduct.thumbnail } 
+              alt={ infoProduct.title }
+              className='card-details-img'
+              />
             </div>
             <div>
               <h4>Especificações Técnicas</h4>

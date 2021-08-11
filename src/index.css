@@ -6,6 +6,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: block;
+  box-shadow: 5px 5px 20px rgb(170, 170, 170);
+  width: 90%;
+  margin: auto;
+  height: auto;
   
 }
 
@@ -21,6 +25,7 @@ code {
 .nav-bar {
   float: left;
   margin: 0px;
+  box-shadow: 5px 5px 20px rgb(170, 170, 170);
 }
 
 .searchbar {
@@ -31,8 +36,41 @@ code {
 
 .main-search {
   display: flex;
-  flex-flow: row-reverse;
+  justify-content: center;
+  flex-flow: column-reverse;
   margin: 20px;
+}
+
+.home-btn {
+  border: 1px solid rgb(255, 255, 255);
+  color: rgb(36, 35, 35);
+
+}
+
+.card-details-body {
+  width: 90%;
+  display: flex;
+  flex-flow: column;
+  height: 800px;
+  text-align: center;
+}
+
+.card-details {
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+  text-align: center;
+  align-content: center;
+  width: 60%;
+  margin: auto;
+  height: 800px;
+  box-shadow: 5px 5px 20px rgb(170, 170, 170);
+  border-radius: 18px;
+}
+
+.card-details-img {
+  margin: auto;
+  width: 200px;
 }
 
 .search-input {
@@ -57,7 +95,8 @@ code {
   bottom: 0;
   right: 0;
   padding: 20px;
-  margin: 2px;
+  margin-right: 80px;
+  margin-bottom: 10px;
   color: black;
   background-color: #4ff1a5;
   border: #1dc476 1px solid;

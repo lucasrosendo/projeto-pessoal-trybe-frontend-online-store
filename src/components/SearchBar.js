@@ -15,7 +15,7 @@ class SearchBar extends Component {
               name="productText"
               value={ productText }
               onChange={ productTextChange }
-              placeholder="Digite algum termo de pesquisa ou escolha uma categoria."
+              placeholder="Faça sua busca"
             />
             <button
               type="submit"
