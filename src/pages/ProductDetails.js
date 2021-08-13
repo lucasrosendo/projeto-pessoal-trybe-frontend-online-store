@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as categoryAPI from '../services/api';
+import FormCommentary from '../components/FormCommentary';
 
 class ProductDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
       productDetails: [],
+      email: '',
+      message: '',
+      commentarys: [],
     };
   }
 
@@ -25,8 +29,25 @@ class ProductDetails extends Component {
       });
   }
 
+  handleChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  addCommentary = (e) => {
+    e.preventDefault();
+    const { email, message } = this.state;
+    if (email !== '') {
+      this.setState((previous) => ({
+        commentarys: [...previous.commentarys, { email, message }],
+      }));
+    }
+  }
+
   render() {
-    const { productDetails } = this.state;
+    const { productDetails, commentarys } = this.state;
     const { match: { params: { id } } } = this.props;
     const { addToCart } = this.props;
     const product = productDetails.filter((productDetail) => productDetail.id === id);
@@ -69,6 +90,16 @@ class ProductDetails extends Component {
                 Adicionar ao Carrinho
               </button>
             </div>
+            <FormCommentary
+              handleChange={ this.handleChange }
+              addCommentary={ this.addCommentary }
+            />
+            { commentarys.map((commentary, index) => (
+              <div key={ index }>
+                <p>{ commentary.email }</p>
+                <p>{ commentary.message }</p>
+              </div>
+            )) }
           </div>
         ))}
       </div>

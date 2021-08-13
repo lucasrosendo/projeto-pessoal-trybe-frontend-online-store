@@ -9,35 +9,32 @@ class ShoppingCart extends Component {
     this.state = {
       cart,
     };
-
   }
 
   render() {
-    const { cart, empty, cartItemRemove } = this.props;
+    const { cart, empty, cartItemRemove, handleQuantity } = this.props;
 
     const productCart = (
       <div>
-        { cart.map(({ id, thumbnail, title, price }) => (
+        { cart.map(({ id, thumbnail, title, price, quantity }) => (
           <div key={ id }>
             <div>
               <img src={ thumbnail } alt="imagem" />
               <div>
                 <h4 data-testid="shopping-cart-product-name">{title}</h4>
-                <div>
-                  <input
-                    data-testid="product-increase-quantity"
-                    type="button"
-                    onClick={ }
-                    value="+"
-                  />
-                  <h5 data-testid="shopping-cart-product-quantity">{}</h5>
-                  <input
-                    data-testid="product-decrease-quantity"
-                    type="button"
-                    onClick={ }
-                    value="-"
-                  />
-                </div>
+                <input
+                  data-testid="product-increase-quantity"
+                  type="button"
+                  onClick={ (event) => handleQuantity(event, id) }
+                  value="+"
+                />
+                <h5 data-testid="shopping-cart-product-quantity">{quantity}</h5>
+                <input
+                  data-testid="product-decrease-quantity"
+                  type="button"
+                  onClick={ (event) => handleQuantity(event, id) }
+                  value="-"
+                />
                 <h5>{price}</h5>
               </div>
             </div>
@@ -71,6 +68,7 @@ ShoppingCart.propTypes = {
   cart: PropTypes.arrayOf(PropTypes.object).isRequired,
   empty: PropTypes.bool.isRequired,
   cartItemRemove: PropTypes.func.isRequired,
+  handleQuantity: PropTypes.func.isRequired,
 };
 
 export default ShoppingCart;
