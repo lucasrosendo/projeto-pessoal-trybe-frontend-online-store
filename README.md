@@ -1,4 +1,4 @@
-# Project Zoo Functions
+# Project Frontend Online Store
 
 # Contexto
 Projeto de conclusão de bloco. 
